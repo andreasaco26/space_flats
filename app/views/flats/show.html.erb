@@ -1,0 +1,27 @@
+<div class="container">
+<br>
+    <h2 class="featurette-heading">Title: <%= @flat.address %></h2>
+      <div class="container">
+        <p class="lead">Flat ID: <%= @flat.id %></p>
+        <p class="lead">Description: <%= @flat.description %></p>
+      </div>
+
+      <div class="container">
+        <%# <%  @flat.photos.each do |photo| %>
+         <br>
+        <div class="row">
+
+            <%# <%= cl_image_tag photo.key, crop: :fill %>
+
+        </div>
+        <br>
+        <%# <% end %>
+      </div>
+
+        <div class="container">
+          <br>
+          <%# <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-outline-secondary" %>
+          <br> <br>
+          <%# <%= link_to 'Back', root_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+ </div>
