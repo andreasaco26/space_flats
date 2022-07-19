@@ -4,18 +4,19 @@
       <div class="container">
         <p class="lead">Flat ID: <%= @flat.id %></p>
         <p class="lead">Description: <%= @flat.description %></p>
+        <p class="lead">Is photo attrached <%= @flat.photos.attached?  %></p>
       </div>
 
       <div class="container">
-        <%# <%  @flat.photos.each do |photo| %>
+        <%  @flat.photos.each do |photo| %>
          <br>
         <div class="row">
 
-            <%# <%= cl_image_tag photo.key, crop: :fill %>
+            <%= cl_image_tag photo.key, crop: :fill %>
 
         </div>
         <br>
-        <%# <% end %>
+     <% end %>
       </div>
 
         <div class="container">
