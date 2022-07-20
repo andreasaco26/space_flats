@@ -31,8 +31,8 @@ const obsOptions = {
 const stickyNav = function(entries) {
   const [entry] = entries;
 
-  if (!entry.isIntersecting) navBar.classList.add("fixed-top", "sticky-nav");
-  else navBar.classList.remove("fixed-top", "sticky-nav");
+  if (!entry.isIntersecting) navBar.classList.add("sticky-nav");
+  else navBar.classList.remove("sticky-nav");
 }
 const navObserver = new IntersectionObserver(stickyNav, obsOptions);
 
