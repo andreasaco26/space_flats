@@ -1,23 +1,24 @@
 <div class="container">
 <br>
     <h2 class="featurette-heading">Title: <%= @flat.address %></h2>
+     <div class="container mt-3">
+        <%  @flat.photos.each do |photo| %>
+         <br>
+        <div class="row d-flex justify-content-center">
+
+            <%= cl_image_tag photo.key, crop: :fill, class: "flat-images" %>
+
+        </div>
+        <br>
+     <% end %>
+      </div>
       <div class="container">
         <p class="lead">Flat ID: <%= @flat.id %></p>
         <p class="lead">Description: <%= @flat.description %></p>
         <p class="lead">Is photo attrached <%= @flat.photos.attached?  %></p>
       </div>
 
-      <div class="container">
-        <%  @flat.photos.each do |photo| %>
-         <br>
-        <div class="row">
 
-            <%= cl_image_tag photo.key, crop: :fill %>
-
-        </div>
-        <br>
-     <% end %>
-      </div>
 
         <div class="container">
           <br>
