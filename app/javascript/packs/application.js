@@ -14,3 +14,26 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+
+
+//sticky nav bar
+const titleHeader = document.querySelector(".container-title");
+const navBar = document.querySelector(".navbar-lewagon");
+const navHeight = navBar.getBoundingClientRect().height;
+
+const obsOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`
+}
+
+const stickyNav = function(entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) navBar.classList.add("sticky-nav");
+  else navBar.classList.remove("sticky-nav");
+}
+const navObserver = new IntersectionObserver(stickyNav, obsOptions);
+
+navObserver.observe(titleHeader);
