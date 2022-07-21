@@ -13,8 +13,9 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 # Gemfile
 gem 'cloudinary', '~> 1.16.0'
-
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Use Puma as the app server
+
 
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

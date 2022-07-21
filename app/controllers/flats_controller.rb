@@ -2,7 +2,7 @@ class FlatsController < ApplicationController
   #skip_before_action :authenticate_user!, only: :home
   #before_action :set_flat
   def index
-    @flats = Flat.all
+    @flats = Flat.all.order(created_at: :desc)
   end
   def show
     @flat = Flat.find(params[:id])
