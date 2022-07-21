@@ -1,0 +1,23 @@
+<%# date is displayed like this YYYY-MM-DD%>
+<div class="container">
+<h1>The current user is <%= current_user.id  %></h1>
+<h1>The current flat  is <%= @flat.id  %></h1>
+ <%= form_for [@flat, @booking] do |f| %>
+ <form >
+  <div class="mb-3">
+   <%= f.label  :check_in, class: "form-label" %>
+  <%= f.date_field :check_in, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+   <%= f.label  :check_out, class: "form-label" %>
+  <%= f.date_field :check_out, class: "form-control" %>
+  </div>
+
+
+
+   <%= f.submit class: "btn btn-primary" %>
+   <%= link_to 'All Flats', flats_path, class:"btn btn-secondary" %>
+   </form>
+
+   <% end %>
+</div>
