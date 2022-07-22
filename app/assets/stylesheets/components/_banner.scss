@@ -4,11 +4,20 @@
   // background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/9b7ee4147933471.62cc5b6d5ec2d.png');
   background-size: cover;
   height: 90vh;
+  min-height: 100%;
   color: #ffffff;
   text-align: center;
-  padding-top: 40vh;
+  display: flex;
+  align-items: center;
+  //padding-top: 40vh;
+
 }
 
-.text-image-banner {
-
+.home-banner .display-1 {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 96px;
+  line-height: 102.1%;
+  letter-spacing: -0.04em;
 }
