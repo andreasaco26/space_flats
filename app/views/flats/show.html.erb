@@ -16,10 +16,14 @@
       </div>
        <ul class="list-group">
   <% @flat.bookings.each do |booking| %>
+  <% if policy(Booking).show? %>
   <h1>The flat with this ID:  <%= booking.flat_id %></h1>
   <li class="list-group-item">User id <%= booking.user_id %></li>
   <li class="list-group-item">Check in is <%= booking.check_in %></li>
     <li class="list-group-item">Check out is <%= booking.check_out %></li>
+    <%# <%= link_to 'Destroy', booking_path(booking), class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <% end %>
         <%# <li class="list-group-item"><%= link_to 'delete', review_path(review), method: :delete  %></li>
   <% end %>
 </ul>

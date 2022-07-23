@@ -58,7 +58,7 @@ counter = 0
 10.times do
 
   flat = Flat.create(address: "#{Faker::Movies::StarWars.droid} #{Faker::Movies::StarWars.planet}",
-   description: description[counter])
+   description: description[counter], user_id: 1)
   file = URI.open(images[counter])
   flat.photos.attach(io: file, filename: "image#{counter+1}.jpg", content_type: 'image/jpg')
   flat.save
