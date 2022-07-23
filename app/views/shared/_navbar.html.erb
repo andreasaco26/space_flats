@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
       <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag 'logo.png', id: "logo" %>
@@ -29,7 +29,6 @@
             <%= image_tag "https://cdn-icons-png.flaticon.com/512/997/997069.png?w=360", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "All flats", flats_path , class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path , class: "dropdown-item" %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
