@@ -26,14 +26,14 @@ letter-spacing: -0.015em;
 
 }
 
-// special navbar styles for home
-// .home .navbar-lewagon {
-//   background-color: rgba(40, 40, 40, 0.3);
-// }
+/*special navbar styles for home */
+.home .navbar-lewagon {
+  background-color: rgba(40, 40, 40, 0.3);
+}
 
-// .home .navbar-nav .nav-link {
-//   color: white;
-// }
+.home .navbar-nav .nav-link {
+  color: white;
+}
 
 .section--hidden {
   opacity:0;
@@ -42,4 +42,9 @@ letter-spacing: -0.015em;
 
 .section {
   transition: transform 1s, opacity 1s;
+}
+
+.nav-link:hover {
+  background-color:rgba(200, 200, 200, 1);
+
 }
