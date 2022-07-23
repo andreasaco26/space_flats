@@ -21,6 +21,7 @@
               <p class="card-text">The text is: <%= flat.description.truncate(100) %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
+
                 <%= link_to 'Show', flat, class:"btn btn-sm btn-outline-secondary" %>
                   <% if policy(flat).edit? %>
                 <%= link_to 'Edit', edit_flat_path(flat), class:"btn btn-sm btn-outline-secondary" %>
@@ -28,6 +29,7 @@
                       <% if policy(flat).destroy? %>
                 <%= link_to 'Destroy', flat, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
                     <% end %>
+
                 </div>
 
               </div>
