@@ -34,3 +34,8 @@ letter-spacing: -0.015em;
 .home .navbar-nav .nav-link {
   color: white;
 }
+
+.section--hidden {
+  opacity:0;
+  transform: translateY(8rem);
+}

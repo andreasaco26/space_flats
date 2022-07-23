@@ -13,7 +13,10 @@
 @import "pages/index";
 
 .section--hidden {
-
   opacity:0;
   transform: translateY(8rem);
+}
+
+body {
+  padding-bottom: 0px;
 }
