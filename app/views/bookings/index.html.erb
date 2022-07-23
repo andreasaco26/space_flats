@@ -1,0 +1,40 @@
+<div class="container">
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+ <% @bookings.each do |booking| %>
+  <% if current_user == booking.user || current_user.admin?  %>
+          <div class="col">
+            <div class="card shadow-sm">
+
+            <div class="card-body">
+            <h4 class="text-center">The flat_id: <%= booking.flat_id %></h4>
+            <p class="card-text">The booking_id  <%= booking.id %></p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                           <div class="btn-group">
+
+                                    <%= link_to 'Show', booking, class:"btn btn-sm btn-outline-secondary" %>
+                                       <% if policy(booking).edit? %>
+                                    <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-sm btn-outline-secondary" %>
+                                         <% end %>
+                                           <% if policy(booking).destroy? %>
+                                    <%= link_to 'Destroy', booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+                                         <% end %>
+
+                        </div>
+
+                    </div>
+              </div>
+            </div>
+          </div>
+           <% end %>
+  <%end  %>
+</div>
+
+
+
+</div>

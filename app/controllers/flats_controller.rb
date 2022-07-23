@@ -6,7 +6,9 @@ class FlatsController < ApplicationController
   end
   def show
     @flat = Flat.find(params[:id])
+    @booking = Booking.new
     authorize @flat
+    #authorize @booking
   end
     def new
       @flat = Flat.new
@@ -15,6 +17,7 @@ class FlatsController < ApplicationController
     def edit
       @flat = Flat.find(params[:id])
       authorize @flat
+
     end
 
     def create

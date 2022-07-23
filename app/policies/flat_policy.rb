@@ -16,9 +16,11 @@ class FlatPolicy < ApplicationPolicy
   def create?
     true
   end
+
   def show?
     true
   end
+
   def update?
     record.user == user || user.admin
   end
