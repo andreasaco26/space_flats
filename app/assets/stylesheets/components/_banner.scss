@@ -1,14 +1,32 @@
+// HOME BANNER
+
 .home-banner {
   // background-image: url('https://media.architecturaldigest.com/photos/560b0c908d1418b65e5e9190/16:9/w_2560%2Cc_limit/nasa-mars-human-habitat-competition01.jpg');
-  background-image: url('https://www.yankodesign.com/images/design_news/2021/09/space-habitats/space_habitats_architecture_hero.jpg');
+  //background-image: url('https://www.yankodesign.com/images/design_news/2021/09/space-habitats/space_habitats_architecture_hero.jpg');
   // background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/9b7ee4147933471.62cc5b6d5ec2d.png');
+  background-image: url('https://res.cloudinary.com/ddbggnphn/image/upload/v1658523883/vik7jjnlpywti2741sxc.jpg');
   background-size: cover;
   height: 90vh;
+  min-height: 100%;
   color: #ffffff;
   text-align: center;
-  padding-top: 40vh;
+  display: flex;
+  align-items: center;
+  //padding-top: 40vh;
+
 }
 
-.text-image-banner {
+.home-banner .display-1 {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 96px;
+  line-height: 102.1%;
+  letter-spacing: -0.04em;
+}
 
+// HOME IMAGE-TEXT-BANNER MODULE
+.text-image-banner .imagery img {
+  max-width: 100%;
+  height: auto
 }
