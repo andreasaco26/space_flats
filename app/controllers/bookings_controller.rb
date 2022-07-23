@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   # def show
@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
   def new
     @flat = Flat.find(params[:flat_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   # def edit
@@ -21,6 +22,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     # we need `flat_id` to associate booking with corresponding flat
     @flat = Flat.find(params[:flat_id])
     @booking.flat = @flat
@@ -41,8 +43,9 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
-    redirect_to flat_bookings, notice: 'Booking was successfully destroyed.'
+    redirect_to flat, notice: 'Booking was successfully destroyed.'
   end
 
   private
