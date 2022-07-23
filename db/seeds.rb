@@ -55,6 +55,8 @@ images = ["https://i2-prod.mirror.co.uk/incoming/article9116356.ece/ALTERNATES/s
 # flat1.photos.attach(io: file, filename: 'image1.jpg', content_type: 'image/jpg')
 # flat1.save
 counter = 0
+Flat.destroy_all
+User.destroy_all
 user1 = User.create(email: 'test@test.com', password: '123456')
 10.times do
   puts counter
