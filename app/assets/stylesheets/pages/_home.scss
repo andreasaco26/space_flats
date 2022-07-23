@@ -1,9 +1,36 @@
 // Specific CSS for your home-page
-body {
+body.home {
 background-color: black;
 color: white;
 }
 
 .container-title {
   height: 400px;
+}
+
+.home h4 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 148.6%;
+  letter-spacing: -0.015em;
+
+}
+
+.home h3 {
+  font-weight: 500;
+font-size: 80px;
+line-height: 130.1%;
+/* or 104px */
+
+letter-spacing: -0.015em;
+
+}
+
+// special navbar styles for home
+.home .navbar-lewagon {
+  background-color: transparent;
+}
+
+.home .navbar-nav .nav-link {
+  color: white;
 }

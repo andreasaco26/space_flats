@@ -12,12 +12,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
-  <!-- Render navigation in all pages except when disable -->
+  <body class="home">
+    <%= render 'shared/navbar'%>
     <%= render 'shared/flashes' %>
     <%= yield %>
-     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
   <%= render 'shared/footer' %>
 
   </body>
