@@ -1,6 +1,6 @@
 
 <!-- HOME BANNER HEADER -->
-<div class="home-banner vertical-center">
+<div class="home-banner vertical-center section" id="section--1">
   <div class="container">
     <div class="row justify-content-center">
     <div class="col-sm-10">
@@ -13,7 +13,7 @@
 
 
 <!-- INTRODUCTION -->
-<div class="container my-5">
+<div class="container my-5 section" id="section--2">
   <div class="row justify-content-md-center">
     <div class="col-7 py-5">
       <h4 class="text-center py-5"> We help connect intergalactic worlds where you can belong anywhere and where space travellers can live in a cozy place, instead of just traveling to it.</h4>
@@ -23,30 +23,30 @@
 
 
 <!-- TEXT IMAGE BANNER: DISCOVER -->
-<div class="container my-5">
+<div class="container my-5 section" id="section--3">
   <div class="text-image-banner">
     <div class="row align-items-center justify-content-between">
       <div class="col-md-4">
-        <h3 class="display-2">Discover.</h3>
+        <h3 class="display-2">Discover</h3>
         <p>Space Flat provides all retail professionals with a virtual window to publish their projects, products, services or innovations.</p>
       </div>
       <div class="col-md-7">
-        <div class="imagery"><%= cl_image_tag("yepuo0znudeswqfw74iu") %></div>
+        <div class="imagery"><img src="https://res.cloudinary.com/ddbggnphn/image/upload/v1658526005/yepuo0znudeswqfw74iu.png" alt="Discover"></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- TEXT IMAGE BANNER: BOOK -->
-<div class="container my-5 py-5">
+<div class="container my-5 py-5 section" id="section--4">
   <div class="text-image-banner py-5">
     <div class="row align-items-center justify-content-between py-5">
       <div class="col-md-4">
-        <h3 class="display-2">Book.</h3>
+        <h3 class="display-2">Book</h3>
         <p>Space Flat provides all retail professionals with a virtual window to publish their projects, products, services or innovations.</p>
       </div>
       <div class="col-md-7">
-        <div class="imagery"><%= cl_image_tag("v1flr739hiemhyzoohpu") %></div>
+        <div class="imagery"><img src="https://res.cloudinary.com/ddbggnphn/image/upload/v1658525964/v1flr739hiemhyzoohpu.png" alt="Discover"></div>
       </div>
     </div>
   </div>
@@ -54,8 +54,8 @@
 
 <!-- EXPLORE FLATS -->
 
-<div class="container my-5 pb-5">
-  <h3 class="display-2 pt-5 pb-3">Explore flats.</h3>
+<div class="container my-5 pb-5 section" id="section--5">
+  <h3 class="display-2 pt-5 pb-3">Explore flats</h3>
   <div class="row justify-content-center">
     <!-- start loop -->
     <% @flats.first(3).each do |flat| %>

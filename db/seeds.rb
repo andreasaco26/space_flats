@@ -55,12 +55,15 @@ images = ["https://i2-prod.mirror.co.uk/incoming/article9116356.ece/ALTERNATES/s
 # flat1.photos.attach(io: file, filename: 'image1.jpg', content_type: 'image/jpg')
 # flat1.save
 counter = 0
+Flat.destroy_all
+User.destroy_all
+user1 = User.create(email: 'test@test.com', password: '123456')
 10.times do
-
+  puts counter
   flat = Flat.create(address: "#{Faker::Movies::StarWars.droid} #{Faker::Movies::StarWars.planet}",
-   description: description[counter], user_id: 1)
+   description: description[counter], user: user1)
   file = URI.open(images[counter])
   flat.photos.attach(io: file, filename: "image#{counter+1}.jpg", content_type: 'image/jpg')
-  flat.save
+  flat.save!
   counter += 1
 end
