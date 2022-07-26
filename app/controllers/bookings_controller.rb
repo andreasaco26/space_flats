@@ -8,13 +8,20 @@ class BookingsController < ApplicationController
   #   @bookings = current_user.bookings
   #  end
     @bookings = policy_scope(Booking).order(created_at: :desc)
+
   end
 
    def show
     @booking = Booking.find(params[:id])
+    @flat = Flat.find(params[:id])
     authorize @booking
+    authorize @flat
 
    end
+
+  #  def rentals
+
+  #  end
 
   def new
     @flat = Flat.find(params[:flat_id])

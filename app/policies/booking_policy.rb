@@ -11,6 +11,9 @@ class BookingPolicy < ApplicationPolicy
     #  end
   end
 
+
+
+
   def new?
     true
   end
@@ -21,8 +24,11 @@ class BookingPolicy < ApplicationPolicy
 
    def show?
     record.user == user || user.admin
-
    end
+
+  #  def rentals?
+  #   true
+  # end
 
   def update?
     record.user == user || user.admin

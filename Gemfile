@@ -15,6 +15,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Use Puma as the app server
+#pgsearch
+gem 'pg_search', '~> 2.3.0'
 # Gemfile
 gem 'pundit'
 

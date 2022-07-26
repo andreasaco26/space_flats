@@ -13,8 +13,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :flats do
+    # collection do
+    #   #write my rute here
+    #       #we wrtie top because we want the top restaurant
+    #   get :myflats
+    # end
     resources :bookings, only: [ :new, :create]
   end
   resources :bookings, only: [:index, :show, :destroy, :edit, :update]
+
+
+     # get "/myflats", to: "flats#myflats"
 
 end
