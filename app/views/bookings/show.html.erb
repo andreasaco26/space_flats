@@ -1,0 +1,23 @@
+<h1>Showing one single booking</h1>
+<div class="container">
+
+<br>
+    <h2 class="featurette-heading">The user id for this booking is <%= @booking.user_id %></h2>
+      <div class="container">
+      <p class="lead">Owner  ID for booking: <%= @flat.user_id %></p>
+        <p class="lead">Flat ID for booking: <%= @booking.flat_id %></p>
+        <p class="lead">Check in date is: <%= @booking.check_in %></p>
+        <p class="lead">Check out date is: <%= @booking.check_out %></p>
+      </div>
+
+
+        <div class="container">
+          <br>
+          <%= link_to 'Go back', bookings_path, class: "btn btn-sm btn-outline-secondary" %>
+
+          <%# <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-outline-secondary" %>
+          <br> <br>
+          <%# <%= link_to 'Back', root_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+        <%# form for bookings %>
+ </div>

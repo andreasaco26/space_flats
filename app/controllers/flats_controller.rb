@@ -2,12 +2,29 @@ class FlatsController < ApplicationController
   #skip_before_action :authenticate_user!, only: :home
   #before_action :set_flat
   def index
-    @flats = policy_scope(Flat).order(created_at: :desc)
+
+    if params[:query].present?
+      @flats = policy_scope(Flat).order(created_at: :desc)
+      @flats = Flat.search_by_address_and_description(params[:query]) #go to movie.rb file to understand reference
+
+    else
+      @flats = policy_scope(Flat).order(created_at: :desc)
+    end
   end
   def show
     @flat = Flat.find(params[:id])
+    @booking = Booking.new
     authorize @flat
+    #authorize @booking
   end
+
+  # def myflats
+
+  #   authorize @flat
+  #   #authorize @booking
+
+  # end
+
     def new
       @flat = Flat.new
       authorize @flat
@@ -15,6 +32,7 @@ class FlatsController < ApplicationController
     def edit
       @flat = Flat.find(params[:id])
       authorize @flat
+
     end
 
     def create

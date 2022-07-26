@@ -16,6 +16,14 @@ class ApplicationPolicy
     false
   end
 
+  # def rentals?
+  #   false
+  # end
+
+  # def myflats?
+  #   false
+  # end
+
   def create?
     false
   end

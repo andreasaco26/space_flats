@@ -6,6 +6,9 @@ class FlatPolicy < ApplicationPolicy
      def resolve
        scope.all
      end
+    #    def resolve
+    #    scope.where(user:user)
+    #  end
   end
 
   def new?
@@ -16,9 +19,15 @@ class FlatPolicy < ApplicationPolicy
   def create?
     true
   end
+
   def show?
     true
   end
+
+  # def myflats?
+  #   record.user == user || user.admin
+  # end
+
   def update?
     record.user == user || user.admin
   end

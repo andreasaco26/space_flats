@@ -1,14 +1,27 @@
 class BookingsController < ApplicationController
 
   def index
+  #   #@bookings =
+  #   if   current_user.admin?
+  #   @bookings = Booking.all
+  #  else
+  #   @bookings = current_user.bookings
+  #  end
     @bookings = policy_scope(Booking).order(created_at: :desc)
+
   end
 
-  # def show
-  #   @flat = Flat.find(params[:flat_id])
+   def show
+    @booking = Booking.find(params[:id])
+    @flat = Flat.find(params[:id])
+    authorize @booking
+    authorize @flat
 
-  #   @booking = Booking.find(params[:id])
-  # end
+   end
+
+  #  def rentals
+
+  #  end
 
   def new
     @flat = Flat.find(params[:flat_id])
@@ -16,9 +29,10 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  # def edit
-  #    @booking = Booking.find(params[:id])
-  # end
+   def edit
+      @booking = Booking.find(params[:id])
+      authorize @booking
+    end
 
   def create
     @booking = Booking.new(booking_params)
@@ -38,14 +52,25 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.user = current_user
+
+    authorize @booking
+    @booking.update(booking_params)
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Flat booking was successfully updated.'
+    else
+      render :edit
+    end
 
   end
 
   def destroy
+    #@flat = Flat.find(params[:flat_id])
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to flat, notice: 'Booking was successfully destroyed.'
+    redirect_to bookings_path, notice: 'Booking was successfully destroyed.'
   end
 
   private
