@@ -2,15 +2,15 @@
 <div class="container">
 <h1>The current user is <%= current_user.id  %></h1>
 <h1>The current flat  is <%= @flat.id  %></h1>
- <%= form_for [@flat, @booking] do |f| %>
+ <%= simple_form_for [@flat, @booking] do |f| %>
  <form >
   <div class="mb-3">
-   <%= f.label  :check_in, class: "form-label" %>
-  <%= f.date_field :check_in, class: "form-control" %>
+   <%= f.input  :check_in, as: :string,  input_html: { id: 'start-date'} %>
+
   </div>
   <div class="mb-3">
-   <%= f.label  :check_out, class: "form-label" %>
-  <%= f.date_field :check_out, class: "form-control" %>
+   <%= f.input  :check_out, as: :string, input_html: {id: 'end-date'} %>
+
   </div>
 
 
