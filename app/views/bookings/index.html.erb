@@ -23,7 +23,7 @@
                                     <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-sm btn-outline-secondary" %>
                                          <% end %>
                                            <% if policy(booking).destroy? %>
-                                    <%= link_to 'Destroy', booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+                                    <%= link_to 'Delete', booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
                                          <% end %>
 
                         </div>

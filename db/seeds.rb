@@ -61,7 +61,7 @@ user1 = User.create(email: 'test@test.com', password: '123456')
 10.times do
   puts counter
   flat = Flat.create(address: "#{Faker::Movies::StarWars.droid} #{Faker::Movies::StarWars.planet}",
-   description: description[counter], user: user1)
+   description: description[counter], user: user1, price: rand(200..1000))
   file = URI.open(images[counter])
   flat.photos.attach(io: file, filename: "image#{counter+1}.jpg", content_type: 'image/jpg')
   flat.save!
