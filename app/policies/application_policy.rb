@@ -12,17 +12,21 @@ class ApplicationPolicy
     false
   end
 
+  def confirmation?
+    false
+  end
+
   def show?
     false
   end
 
-  # def rentals?
-  #   false
-  # end
+  def rentals?
+    false
+  end
 
-  # def myflats?
-  #   false
-  # end
+  def myflats?
+    false
+  end
 
   def create?
     false

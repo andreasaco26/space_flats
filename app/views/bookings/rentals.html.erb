@@ -8,7 +8,7 @@
 
 
  <% @bookings.each do |booking| %>
-  <% if current_user == booking.user || current_user.admin?%>
+
           <div class="col">
             <div class="card shadow-sm">
 
@@ -33,7 +33,6 @@
               </div>
             </div>
           </div>
-           <% end %>
   <%end  %>
 </div>
 

@@ -24,9 +24,10 @@ class FlatPolicy < ApplicationPolicy
     true
   end
 
-  # def myflats?
-  #   record.user == user || user.admin
-  # end
+  def myflats?
+    true
+    #record.user == user || user.admin
+  end
 
   def update?
     record.user == user || user.admin

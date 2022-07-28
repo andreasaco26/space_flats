@@ -18,12 +18,13 @@ class FlatsController < ApplicationController
     #authorize @booking
   end
 
-  # def myflats
-
-  #   authorize @flat
-  #   #authorize @booking
-
-  # end
+  def myflats
+    #@flats = policy_scope(Flat).order(created_at: :desc)
+    @flats = Flat.where(user: current_user)
+    authorize @flats
+    #authorize @booking
+    #@flats = current_user.flats
+  end
 
     def new
       @flat = Flat.new

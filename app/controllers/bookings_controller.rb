@@ -8,7 +8,11 @@ class BookingsController < ApplicationController
   #   @bookings = current_user.bookings
   #  end
     @bookings = policy_scope(Booking).order(created_at: :desc)
+  end
 
+  def confirmation
+    @bookings = Booking.where(user: :current_user)
+    authorize @bookings
   end
 
    def show
@@ -19,9 +23,11 @@ class BookingsController < ApplicationController
 
    end
 
-  #  def rentals
+   def rentals
+    @bookings = Booking.joins(:flat).where(flat: { user: current_user })
+    authorize @bookings
 
-  #  end
+   end
 
   def new
     @flat = Flat.find(params[:flat_id])
