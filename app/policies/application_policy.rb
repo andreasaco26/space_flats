@@ -12,6 +12,10 @@ class ApplicationPolicy
     false
   end
 
+  def confirmation?
+    false
+  end
+
   def show?
     false
   end

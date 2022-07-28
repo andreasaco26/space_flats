@@ -22,11 +22,8 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :destroy, :edit, :update] do
     collection do
+      get :confirmation
       get :rentals
     end
   end
-
-
-     # get "/myflats", to: "flats#myflats"
-
 end
