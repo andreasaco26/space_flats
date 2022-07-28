@@ -17,10 +17,10 @@
 
 
 
-    <div class="form-booking mt-5 ">
+    <div class="form-booking mt-5 shadow-sm p-3 mb-5 bg-light rounded">
 
-        <%= simple_form_for [@flat, @booking] do |f| %>
-          <form class="justify-content-center" >
+        <%= simple_form_for [@flat, @booking], :html => {:"data-price" => @flat.price} do |f| %>
+          <form class="justify-content-center booking-form">
             <div class="mb-3">
                 <%= f.input  :check_in, as: :string,  input_html: { id: 'start-date'} %>
 
@@ -32,12 +32,20 @@
 
 
 
-            <%= f.submit "Book", class: "btn btn-primary w-100" %>
+            <%= f.submit "Book", class: "btn btn-sm btn-outline-secondary mt-2 w-100" %>
 
         </form>
 
         <% end %>
+        <div class="total mt-3 d-flex justify-content-center">
+          <div class="price-info ">
+            <p class="lead total-days border-bottom"> </p>
+            <p class="lead total-price "> </p>
+          </div>
+
+        </div>
      </div>
+
  </div>
 
 
