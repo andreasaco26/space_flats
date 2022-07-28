@@ -1,23 +1,39 @@
 <%# date is displayed like this YYYY-MM-DD%>
-<div class="container">
-<h1>The current user is <%= current_user.id  %></h1>
-<h1>The current flat  is <%= @flat.id  %></h1>
- <%= form_for [@flat, @booking] do |f| %>
- <form >
-  <div class="mb-3">
-   <%= f.label  :check_in, class: "form-label" %>
-  <%= f.date_field :check_in, class: "form-control" %>
+<div class="container d-flex justify-content-around">
+  <div class="form-booking mt-3">
+      <h1>The current user is <%= current_user.id  %></h1>
+      <h1>The current flat  is <%= @flat.id  %></h1>
+      <%= simple_form_for [@flat, @booking] do |f| %>
+          <form >
+            <div class="mb-3">
+                <%= f.input  :check_in, as: :string,  input_html: { id: 'start-date'} %>
+
+            </div>
+            <div class="mb-3">
+              <%= f.input  :check_out, as: :string, input_html: {id: 'end-date'} %>
+
+            </div>
+
+
+
+            <%= f.submit class: "btn btn-primary" %>
+            <%= link_to 'All Flats', flats_path, class:"btn btn-secondary" %>
+        </form>
+
+        <% end %>
+   </div>
+
+   <div class="total-display mt-3 d-flex align-items-center"">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Total</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Days</h6>
+          <p class="card-text"> <%=   %></p>
+          <h6 class="card-subtitle mb-2 text-muted">Price</h6>
+          <p class="card-text"> <%=   %></p>
+          <
   </div>
-  <div class="mb-3">
-   <%= f.label  :check_out, class: "form-label" %>
-  <%= f.date_field :check_out, class: "form-control" %>
-  </div>
+</div>
 
-
-
-   <%= f.submit class: "btn btn-primary" %>
-   <%= link_to 'All Flats', flats_path, class:"btn btn-secondary" %>
-   </form>
-
-   <% end %>
+   </div>
 </div>

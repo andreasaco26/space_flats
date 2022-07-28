@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "plugins/flatpickr.js"
 
 Rails.start()
 Turbolinks.start()
@@ -16,27 +17,6 @@ import "controllers"
 import "bootstrap"
 
 
-
-//sticky nav bar
-// const titleHeader = document.querySelector(".container-title");
-// const navBar = document.querySelector(".navbar-lewagon");
-// const navHeight = navBar.getBoundingClientRect().height;
-
-// const obsOptions = {
-//   root: null,
-//   threshold: 0,
-//   rootMargin: `-${navHeight}px`
-// }
-
-// const stickyNav = function(entries) {
-//   const [entry] = entries;
-
-//   if (!entry.isIntersecting) navBar.classList.add("sticky-nav");
-//   else navBar.classList.remove("sticky-nav");
-// }
-// const navObserver = new IntersectionObserver(stickyNav, obsOptions);
-
-// navObserver.observe(titleHeader);
 
 //reveal sections
 const allSections = document.querySelectorAll(".section");
