@@ -28,9 +28,9 @@ end
     record.user == user || user.admin
    end
 
-  #  def rentals?
-  #   true
-  # end
+   def rentals?
+    true
+  end
 
   def update?
     record.user == user || user.admin
