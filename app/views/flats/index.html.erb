@@ -19,7 +19,7 @@
                 placeholder: "Find a flat"
               %>
 
-              <%= submit_tag "Search", class: "btn btn-primary" %>
+              <%= submit_tag "Search", class: "btn btn-sm btn-outline-secondary mt-2" %>
             <% end %>
         </div>
        </div>
@@ -32,8 +32,8 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <% @flats.each do |flat| %>
           <div class="col">
-            <div class="card shadow-sm">
-            <%= cl_image_tag flat.photos[0].key, width: 400, height: 300, crop: :fill, class: "bd-placeholder-img card-img-top rounded-top" %>
+            <div class="card shadow-sm border-0 img-round">
+            <%= cl_image_tag flat.photos[0].key, width: 350, height: 200, crop: :fill, class: "bd-placeholder-img card-img-top rounded-top" %>
                       <div class="card-body">
                           <h4 class="text-center"> <%= flat.address %></h4>
                           <%# <p class="card-text">The ID  <%= flat.id</p> %>
@@ -42,14 +42,16 @@
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
 
-                                      <%= link_to 'Details', flat, class:"btn btn-sm btn-outline-secondary m-1" %>
+                                      <%= link_to flat, class:"btn btn-sm btn-outline-secondary m-1 border-0"  do%>
+                                        <i class="fas fa-info-circle"></i>
+                                      <% end %>
                                         <% if policy(flat).edit? %>
-                                      <%= link_to  edit_flat_path(flat), class:"btn btn-sm btn-outline-secondary m-1" do%>
+                                      <%= link_to  edit_flat_path(flat), class:"btn btn-sm btn-outline-secondary m-1 border-0" do%>
                                         <i class="fas fa-edit"></i>
                                       <% end %>
                                           <% end %>
                                             <% if policy(flat).destroy? %>
-                                      <%= link_to flat, class:"btn btn-sm btn-outline-secondary m-1", method: :delete, data: { confirm: 'Are you sure?' } do%>
+                                      <%= link_to flat, class:"btn btn-sm btn-outline-secondary m-1 border-0", method: :delete, data: { confirm: 'Are you sure?' } do%>
                                         <i class="fas fa-trash-alt"></i>
                                       <% end %>
                                           <% end %>
