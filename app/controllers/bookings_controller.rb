@@ -8,7 +8,11 @@ class BookingsController < ApplicationController
   #   @bookings = current_user.bookings
   #  end
     @bookings = policy_scope(Booking).order(created_at: :desc)
+  end
 
+  def confirmation
+    @bookings = Booking.where(user: :current_user)
+    authorize @bookings
   end
 
    def show

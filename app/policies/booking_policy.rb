@@ -11,7 +11,9 @@ class BookingPolicy < ApplicationPolicy
     #  end
   end
 
-
+def confirmation?
+  true
+end
 
 
   def new?
@@ -36,6 +38,5 @@ class BookingPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user || user.admin
-
   end
 end
