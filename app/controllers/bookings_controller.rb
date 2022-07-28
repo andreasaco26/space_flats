@@ -19,9 +19,11 @@ class BookingsController < ApplicationController
 
    end
 
-  #  def rentals
+   def rentals
+    @bookings = Booking.joins(:flat).where(flat: { user: current_user })
+    authorize @bookings
 
-  #  end
+   end
 
   def new
     @flat = Flat.find(params[:flat_id])
