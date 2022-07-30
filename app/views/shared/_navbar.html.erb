@@ -1,18 +1,14 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
       <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag 'logo.png', id: "logo" %>
     <% end %>
-
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span><%= link_to "Home", root_path, class: "nav-link" %>
+      <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
@@ -28,10 +24,9 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <%= image_tag "https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Alien-512.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://cdn-icons-png.flaticon.com/512/997/997069.png?w=360", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
               <%= link_to "Bookings", bookings_path , class: "dropdown-item" %>
               <%= link_to "My flats", myflats_flats_path , class: "dropdown-item" %>
               <%= link_to "Rentals", rentals_bookings_path , class: "dropdown-item" %>
@@ -43,10 +38,8 @@
         <% else %>
           <li class="nav-item">
             <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-
           </li>
           <li class="nav-item">
-
             <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
