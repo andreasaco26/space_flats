@@ -119,3 +119,20 @@ margin-top: 7rem;
 height: 20vw;
 object-fit: cover;
 }
+
+
+/* card-booking-index
+------------------------- */
+.booking-card .image {
+  height: 72px;
+  width: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+.booking-card h5 {
+  color: #5a5a5a;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
