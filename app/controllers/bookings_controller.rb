@@ -8,6 +8,8 @@ class BookingsController < ApplicationController
   #   @bookings = current_user.bookings
   #  end
     @bookings = policy_scope(Booking).order(created_at: :desc)
+    @flats = policy_scope(Flat).order(created_at: :desc)
+
   end
 
   def confirmation

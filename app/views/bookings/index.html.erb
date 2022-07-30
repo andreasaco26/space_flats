@@ -1,43 +1,56 @@
-<div class="container">
-<br>
-<br>
-<br>
-<br>
-<div class="container">
+<h2 class="mt-4 mb-4">My bookings</h2>
+<!--<div class="container">-->
+   <!-- <div class="row">-->
+  <% @bookings.each do |booking| %>
+    <% if current_user == booking.user || current_user.admin?%>
+
+      <div class="card mb-3 booking-card" style="max-width: 540px;">
+
+          <%= link_to booking, class: "text-decoration-none" do %>
+            <div class="row g-0">
 
 
+              <!-- LOOP -->
+              <% @flats.each do |flat| %>
+                <% if flat.id == booking.flat_id %>
+                  <!-- image -->
 
- <% @bookings.each do |booking| %>
-  <% if current_user == booking.user || current_user.admin?%>
-          <div class="col">
-            <div class="card shadow-sm">
+                    <%= cl_image_tag flat.photos[0].key, class: "img-fluid image" %>
 
-            <div class="card-body">
-            <h4 class="text-center">The flat_id: <%= booking.flat_id %></h4>
-            <p class="card-text">The booking_id  <%= booking.id %></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                           <div class="btn-group">
-
-                                    <%= link_to 'Show', booking, class:"btn btn-sm btn-outline-secondary" %>
-                                       <% if policy(booking).edit? %>
-                                    <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-sm btn-outline-secondary" %>
-                                         <% end %>
-                                           <% if policy(booking).destroy? %>
-                                    <%= link_to 'Delete', booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
-                                         <% end %>
-
-                        </div>
-
+                  <!-- end image -->
+                  <!-- details -->
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= flat.address %></h5>
+                      <p class="card-text"><small class="text-muted"><%= booking.check_in %> - <%= booking.check_out %></small></p>
                     </div>
-              </div>
+                  </div>
+                  <!-- details -->
+                <% end %>
+              <% end %>
+              <!-- END LOOP -->
+
+
+
+
+
+              <!-- action buttons -->
+              <!-- <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to 'Show', booking, class:"btn btn-sm btn-outline-secondary" %>
+                  <% if policy(booking).edit? %>
+                    <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-sm btn-outline-secondary" %>
+                  <% end %>
+                  <% if policy(booking).destroy? %>
+                    <%= link_to 'Delete', booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </div>
+              </div> -->
+              <!-- action buttons -->
             </div>
-          </div>
-           <% end %>
+          <% end %>
+      </div>
+    <% end %>
   <%end  %>
-</div>
-
-
-
-
-
-</div>
+  <!--</div>-->
+<!--</div>-->
