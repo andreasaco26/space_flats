@@ -38,3 +38,27 @@ allSections.forEach(function(section) {
   sectionObserver.observe(section);
   section.classList.add("section--hidden");
 })
+
+
+const checkOutDate = document.querySelector("#end-date");
+const checkInDate = document.querySelector("#start-date");
+
+const form = document.querySelector("#new_booking");
+const days = document.querySelector(".total-days");
+const priceElement = document.querySelector(".total-price");
+const price = parseInt(form.dataset.price);
+
+
+
+
+form.addEventListener("change", function(event) {
+
+  console.log(event.target._flatpickr.selectedDates)
+  const totalDays = (event.target._flatpickr.selectedDates[1] - event.target._flatpickr.selectedDates[0])/(1000 * 3600 * 24);
+  if (totalDays) {
+    days.innerText= `${totalDays} nights x ${price}`;
+    priceElement.innerText = `Total ${parseInt(totalDays) * price} €`
+  }
+
+
+})

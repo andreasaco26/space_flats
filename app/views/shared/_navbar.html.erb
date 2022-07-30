@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag 'logo.png', id: "logo" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,9 +9,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+
+
+          <%# <li class="nav-item active">
+
             <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
+          <%#</li> %>
           <li class="nav-item">
           <% if policy(Flat).create? %>
               <%= link_to "New flat", new_flat_path , class: "nav-link" %>
@@ -27,6 +30,7 @@
             <%= image_tag "https://cdn-icons-png.flaticon.com/512/997/997069.png?w=360", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
               <%= link_to "Bookings", bookings_path , class: "dropdown-item" %>
               <%= link_to "My flats", myflats_flats_path , class: "dropdown-item" %>
               <%= link_to "Rentals", rentals_bookings_path , class: "dropdown-item" %>
