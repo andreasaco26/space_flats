@@ -44,7 +44,7 @@ class FlatsController < ApplicationController
       @flat.user = current_user
       authorize @flat
       if @flat.save
-        redirect_to @flat, notice: 'Article was successfully created.'
+        redirect_to @flat, notice: 'You have succesfully created a new flat'
       else
         render :new
       end
@@ -56,7 +56,7 @@ class FlatsController < ApplicationController
       authorize @flat
       @flat.update(flat_params)
       if @flat.update(flat_params)
-        redirect_to @flat, notice: 'Article was successfully updated.'
+        redirect_to @flat, notice: 'You have succesfully updated the flat'
       else
         render :edit
       end
