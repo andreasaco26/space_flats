@@ -6,6 +6,12 @@
 <div class="container">
 
 <div class="container">
+<%# <h1>Complete this form to edit your booking for <%= @booking.address  %></h1>
+<h2>Complete this form to edit your booking </h2>
+<p>The address is <%= @booking.flat.address  %></p>
+<p>Your current check in is <%= @booking.check_in  %> and your current check out is <%= @booking.check_out   %></p>
+<p>Total price is <%= @booking.booking_total_price  %>  Euro</p>
+
 <%= simple_form_for(@booking) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -16,11 +22,13 @@
   <%= f.label  :check_out, class: "form-label" %>
   <%= f.date_field :check_out, class: "form-control" %>
   </div>
-
+  <br>
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-sm btn-outline-secondary" %>
   </div>
 <% end %>
+<br>
+ <%= link_to 'Go back', bookings_path, class:"btn btn-sm btn-outline-secondary" %>
 
 </div>
 </div>

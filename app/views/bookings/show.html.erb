@@ -18,6 +18,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Check in: <%= @booking.check_in %></li>
       <li class="list-group-item">Check out: <%= @booking.check_out %></li>
+      <li class="list-group-item">Total price: <%= @booking.booking_total_price %></li>
     </ul>
     <div class="card-body">
 
@@ -25,6 +26,10 @@
   </div>
 
   <div class="container">
+   <%= link_to 'Edit', edit_booking_path(@booking), class: "btn btn-sm btn-outline-secondary" %>
+          <br> <br>
+          <%= link_to 'Delete', @booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+
     <%= link_to 'Go back', bookings_path, class: "btn btn-sm btn-outline-secondary" %>
     <%# <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-outline-secondary" %>
     <%# <%= link_to 'Back', root_path, class: "btn btn-sm btn-outline-secondary" %>
