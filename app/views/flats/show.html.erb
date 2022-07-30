@@ -6,6 +6,7 @@
   <div class="jumbotron mt-5 w-50">
 
     <h1 class="display-4"><%= @flat.address %></h1>
+    <h4 class="card-text"> <%= @flat.price %> <i class="fas fa-euro-sign"></i> / night</h4>
 
     <hr class="my-4">
     <p><%= @flat.description %></p>
@@ -18,21 +19,20 @@
 
 
     <div class="form-booking mt-5 shadow-sm p-3 mb-5 bg-light rounded">
-
         <%= simple_form_for [@flat, @booking], :html => {:"data-price" => @flat.price} do |f| %>
           <form class="justify-content-center booking-form">
+
             <div class="mb-3">
                 <%= f.input  :check_in, as: :string,  input_html: { id: 'start-date'} %>
 
             </div>
             <div class="mb-3">
               <%= f.input  :check_out, as: :string, input_html: {id: 'end-date'} %>
-
             </div>
 
 
 
-            <%= f.submit "Book", class: "btn btn-sm btn-outline-secondary mt-2 w-100" %>
+            <%= f.submit "Book", class: "btn btn-sm btn-outline-primary mt-2 w-100" %>
 
         </form>
 

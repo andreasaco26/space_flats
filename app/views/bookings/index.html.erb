@@ -1,14 +1,15 @@
-<h2 class="mt-4 mb-4">My bookings</h2>
+
+<h2 class="mt-4 mb-4">Upcomming bookings</h2>
 <!--<div class="container">-->
    <!-- <div class="row">-->
+<div class="container pb-4">
+  <div class="row pl-0">
   <% @bookings.each do |booking| %>
     <% if current_user == booking.user || current_user.admin?%>
-
+    <% if Date.today < booking.check_in   %>
       <div class="card mb-3 booking-card" style="max-width: 540px;">
-
           <%= link_to booking, class: "text-decoration-none" do %>
             <div class="row g-0">
-
 
               <!-- LOOP -->
               <% @flats.each do |flat| %>
@@ -29,28 +30,53 @@
                 <% end %>
               <% end %>
               <!-- END LOOP -->
-
-
-
-
-
-              <!-- action buttons -->
-              <!-- <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <%= link_to 'Show', booking, class:"btn btn-sm btn-outline-secondary" %>
-                  <% if policy(booking).edit? %>
-                    <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-sm btn-outline-secondary" %>
-                  <% end %>
-                  <% if policy(booking).destroy? %>
-                    <%= link_to 'Delete', booking, class:"btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
-                </div>
-              </div> -->
-              <!-- action buttons -->
             </div>
           <% end %>
       </div>
     <% end %>
+    <% end %>
   <%end  %>
+  </div>
+</div>
   <!--</div>-->
 <!--</div>-->
+
+<h2 class="mt-4 mb-4">Past bookings</h2>
+<!--<div class="container">-->
+   <!-- <div class="row">-->
+<div class="container pb-4">
+  <div class="row pl-0">
+  <% @bookings.each do |booking| %>
+    <% if current_user == booking.user || current_user.admin?%>
+    <% if Date.today > booking.check_in   %>
+      <div class="card mb-3 booking-card" style="max-width: 540px;">
+          <%= link_to booking, class: "text-decoration-none" do %>
+            <div class="row g-0">
+
+              <!-- LOOP -->
+              <% @flats.each do |flat| %>
+                <% if flat.id == booking.flat_id %>
+                  <!-- image -->
+
+                    <%= cl_image_tag flat.photos[0].key, class: "img-fluid image" %>
+
+                  <!-- end image -->
+                  <!-- details -->
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= flat.address %></h5>
+                      <p class="card-text"><small class="text-muted"><%= booking.check_in %> - <%= booking.check_out %></small></p>
+                    </div>
+                  </div>
+                  <!-- details -->
+                <% end %>
+              <% end %>
+              <!-- END LOOP -->
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+    <% end %>
+  <%end  %>
+  </div>
+</div>
