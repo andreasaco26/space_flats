@@ -1,8 +1,9 @@
 
-<h2 class="mt-4 mb-4">Upcomming bookings</h2>
+
 <!--<div class="container">-->
    <!-- <div class="row">-->
 <div class="container pb-4">
+  <h2 class="mt-4 mb-4">Upcomming bookings</h2>
   <div class="row pl-0">
   <% @bookings.each do |booking| %>
     <% if current_user == booking.user || current_user.admin?%>
@@ -41,10 +42,11 @@
   <!--</div>-->
 <!--</div>-->
 
-<h2 class="mt-4 mb-4">Past bookings</h2>
+
 <!--<div class="container">-->
    <!-- <div class="row">-->
 <div class="container pb-4">
+  <h2 class="mt-4 mb-4">Past bookings</h2>
   <div class="row pl-0">
   <% @bookings.each do |booking| %>
     <% if current_user == booking.user || current_user.admin?%>
