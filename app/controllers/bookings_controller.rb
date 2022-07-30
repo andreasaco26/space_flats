@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     @booking.save
-    redirect_to flat_path(@flat)
+    redirect_to confirmation_bookings_path(@booking)
     # if @booking.save
     #   redirect_to @booking, notice: 'Booking succesful'
     # else
