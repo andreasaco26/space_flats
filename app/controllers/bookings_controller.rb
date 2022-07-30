@@ -35,11 +35,14 @@ class BookingsController < ApplicationController
     @flat = Flat.find(params[:flat_id])
     @booking = Booking.new
     authorize @booking
+
   end
 
    def edit
       @booking = Booking.find(params[:id])
       authorize @booking
+
+
     end
 
   def create
@@ -49,6 +52,7 @@ class BookingsController < ApplicationController
     @flat = Flat.find(params[:flat_id])
     @booking.flat = @flat
     @booking.user = current_user
+    @booking.booking_total_price = ((@booking.check_in...@booking.check_out).count * @flat.price)
 
     @booking.save
     redirect_to confirmation_bookings_path(@booking)
@@ -61,8 +65,8 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.user = current_user
 
+    @booking.user = current_user
     authorize @booking
     @booking.update(booking_params)
     if @booking.update(booking_params)

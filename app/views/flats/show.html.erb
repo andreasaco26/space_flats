@@ -47,25 +47,33 @@
      </div>
 
  </div>
+ <% if @flat.photos.length == 1   %>
+<div class="container">
+             <%= cl_image_tag @flat.photos[0].key,   crop: :fill, class: "bd-placeholder-img card-img-top rounded-top" %>
+
+</div>
+<% else %>
+
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <% @flat.photos.each do |photo| %>
+          <div class="col">
+            <div class="card shadow-sm border-0 img-round">
+            <%= cl_image_tag photo.key,   crop: :fill, class: "bd-placeholder-img card-img-top rounded-top" %>
 
 
-  <div id="carouselExampleControls" class="carousel slide s" data-ride="carousel">
-  <div class="carousel-inner">
-  <% @flat.photos.each do |photo| %>
+            </div>
+          </div>
+          <%end  %>
 
+        </div>
+      </div>
 
-    <div class="carousel-item active">
-      <%= cl_image_tag photo.key, height: 100, width: 100, class: 'd-block' %>
-    </div>
-    <% end %>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+
+<%end %>
+
+
+
+
 
 </div>
