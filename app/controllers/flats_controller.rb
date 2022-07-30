@@ -24,6 +24,8 @@ class FlatsController < ApplicationController
     authorize @flats
     #authorize @booking
     #@flats = current_user.flats
+    #@bookings = Booking.joins(:flat).where(flat: { user: current_user })
+    #authorize @bookings
   end
 
     def new
